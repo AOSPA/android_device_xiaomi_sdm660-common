@@ -141,7 +141,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
-    persist.debug.wfd.enable=1 \
     persist.hwc.enable_vds=1 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=0 \
@@ -326,8 +325,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Time daemon
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
-
-# WFD
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
