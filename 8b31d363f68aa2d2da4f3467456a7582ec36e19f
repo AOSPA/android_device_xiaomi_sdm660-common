@@ -1,0 +1,9 @@
+Code-Review+2: Name of user not set #1000510
+Code-Review+2: Jake Weinstein <jake@aospa.co>
+Verified+1: Name of user not set #1000510
+Verified+1: Jake Weinstein <jake@aospa.co>
+Submitted-by: Jake Weinstein <jake@aospa.co>
+Submitted-at: Thu, 04 Jun 2020 18:36:42 +0000
+Reviewed-on: https://gerrit.aospa.co/c/AOSPA/android_device_xiaomi_sdm660-common/+/11998
+Project: AOSPA/android_device_xiaomi_sdm660-common
+Branch: refs/heads/quartz
