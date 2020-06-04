@@ -346,7 +346,8 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay
+    $(COMMON_PATH)/overlay \
+    $(COMMON_PATH)/overlay-pa
 
 # Permissions
 PRODUCT_COPY_FILES += \
