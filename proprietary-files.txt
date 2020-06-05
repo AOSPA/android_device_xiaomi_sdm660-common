@@ -786,9 +786,6 @@ vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/bin/cnss-daemon|d7118e205124e456e6d5ff01efeb8ad931001eb3
 
 # Wi-Fi Display - from LA.UM.8.2.r1-06700-sdm660.0
-lib/libmmosal.so|0bf6e50b59f7e77b40e4d256c6c561be5104a148
-lib/libmmparser_lite.so|8178e82b5de51f7292ad738ff66034459d4b7ffa
-lib64/libmmosal.so|f2ec52d5ff321b7064dd6102a0ebc7914c11b7c9
 vendor/bin/wifidisplayhalservice|7b84c067e9caf4350a2436a912f5957f57b42c7b
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|04e463342cbba4c0e9c311a18238f95dec9359fd
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so|5004085e4c19e7812f0c71881b12f3c5168b19e2
