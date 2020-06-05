@@ -144,7 +144,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_VENDORIMAGE_PARTITION_SIZE := 2147483648
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
+ifneq ($(ENABLE_FBE), true)
 TARGET_USERIMAGES_USE_F2FS := true
+endif
 
 # Extra Symlink
 BOARD_ROOT_EXTRA_SYMLINKS := \
@@ -171,7 +173,11 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 ifneq ($(filter lavender,$(TARGET_DEVICE)),)
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_A.qcom
 else ifeq ($(ENABLE_AB), true)
+ifeq ($(ENABLE_FBE), true)
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_AB_fbe.qcom
+else
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_AB.qcom
+endif
 else
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 endif
