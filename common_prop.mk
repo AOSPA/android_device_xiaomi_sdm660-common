@@ -225,16 +225,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.at_library=libqti-at.so \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
-    vendor.enable.prefetch=0 \
-    vendor.iop.enable_iop=1 \
-    vendor.iop.enable_prefetch_ofr=0 \
-    vendor.iop.enable_uxe=1 \
-    vendor.perf.gestureflingboost.enable=true \
-    vendor.perf.iop_v3.enable.debug=false \
-    vendor.perf.iop_v3.enable=true
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 # Proximity
 PRODUCT_PROPERTY_OVERRIDES += \
