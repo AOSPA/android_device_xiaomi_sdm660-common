@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3306185_89e8eb19",
+        "filename": "bluetooth/bdroid_buildcfg.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000012
+      },
+      "writtenOn": "2020-06-17T22:15:11Z",
+      "side": 0,
+      "message": "Love it! not sure why more don\u0027t realize this",
+      "revId": "e1c3348c64306f9e775722477fa74ee5149297df",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": true
+    }
+  ]
+}
