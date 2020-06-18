@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f115f257_1a1d82ca",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000495
+      },
+      "writtenOn": "2020-06-18T03:20:50Z",
+      "side": 1,
+      "message": "This can be built from source",
+      "parentUuid": "",
+      "revId": "300d98ecf3a126d6bccbc3e364876db2bf1b8e57",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2791d16c_05554463",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000495
+      },
+      "writtenOn": "2020-06-18T03:20:50Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "300d98ecf3a126d6bccbc3e364876db2bf1b8e57",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": true
+    }
+  ]
+}
