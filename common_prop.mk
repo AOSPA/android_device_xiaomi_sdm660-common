@@ -22,13 +22,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.privapp.list=org.codeaurora.snapcam \
     persist.vendor.camera.dual.isp.sync=0 \
     persist.vendor.camera.eis.enable=1 \
     persist.vendor.camera.exif.make=Xiaomi \
-    persist.vendor.camera.HAL3.enabled=1 \
-    persist.vendor.camera.privapp.list=org.codeaurora.snapcam \
-    vendor.camera.aux.packageblacklist=com.google.android.GoogleCamera,com.discord
+    persist.vendor.camera.HAL3.enabled=1
 
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -72,11 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.ms=android-xiaomi-rev2
-
-# HAL1 apps list
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera.hal1.packagelist=com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android \
-    vendor.camera.hal1.packagelist= com.whatsapp,com.android.camera,com.android.camera2,com.instagram.android
 
 # iwlan vowifi corresponding
 PRODUCT_PROPERTY_OVERRIDES += \
