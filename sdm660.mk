@@ -21,11 +21,6 @@
 # definition file).
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-$(call inherit-product-if-exists, build/target/product/embedded.mk)
-
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
 $(call inherit-product-if-exists, vendor/miuicamera/common/common-vendor.mk)
@@ -39,10 +34,10 @@ $(call inherit-product, $(COMMON_PATH)/common_prop.mk)
 # A/B
 ifeq ($(ENABLE_AB), true)
 AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
+    POSTINSTALL_OPTIONAL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    RUN_POSTINSTALL_system=true
 
 PRODUCT_PACKAGES += \
     otapreopt_script
@@ -77,21 +72,19 @@ endif
 $(call inherit-product, vendor/qcom/opensource/audio-hal/primary-hal/configs/sdm660/sdm660.mk)
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio_amplifier.sdm660 \
     audio.primary.sdm660 \
     audio.r_submix.default \
     audio.usb.default \
-    liba2dpoffload \
     libaudio-resampler \
     libhdmiedid \
-    libhfp \
-    libsndmonitor \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener \
-    tinymix.vendor
+    libsndmonitor \
+    libvolumelistener
+
+PRODUCT_PACKAGES_DEBUG += \
+    tinymix
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
@@ -108,21 +101,14 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default \
     android.hardware.bluetooth.audio@2.0-impl \
+    audio.bluetooth.default \
     com.qualcomm.qti.bluetooth_audio@1.0.vendor \
     liba2dpoffload \
     libbluetooth_qti \
-    libbthost_if \
-    libhdmiedid \
     libhfp \
-    libldacBT_dec \
-    libsndmonitor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor
-
-# Boot animation
-TARGET_BOOTANIMATION_SIZE := 1080p
 
 # Broadcastradio
 PRODUCT_PACKAGES += \
@@ -130,34 +116,18 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0 \
     android.hardware.camera.device@3.4 \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.provider@2.5 \
-    vendor.qti.hardware.camera.device@1.0 \
-    Snap
-
-# Codec2 modules
-PRODUCT_PACKAGES += \
-    com.android.media.swcodec \
-    libsfplugin_ccodec
-
-# Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne \
-    services-ext
-
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
+    vendor.qti.hardware.camera.device@1.0
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk )
 
 # Display
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0 \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
@@ -167,11 +137,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     gralloc.sdm660 \
     hwcomposer.sdm660 \
-    memtrack.sdm660 \
-    liboverlay \
     libtinyxml \
-    vendor.display.config@1.9 \
-    vendor.display.config@1.9_vendor
+    memtrack.sdm660
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -191,20 +158,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom
 
-# GMS
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
 # GPS / Location
 $(call inherit-product, hardware/qcom/gps/gps_vendor_product.mk)
 
 # Healthd
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0_vendor
 
 # IDC
 PRODUCT_COPY_FILES += \
@@ -213,7 +172,6 @@ PRODUCT_COPY_FILES += \
 
 # IFAAService
 PRODUCT_PACKAGES += \
-    IFAAService \
     org.ifaa.android.manager
 
 # IFAA JAR
@@ -230,7 +188,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.qti.fm.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
@@ -238,12 +195,6 @@ PRODUCT_PACKAGES += \
 # Ion
 PRODUCT_PACKAGES += \
     libion
-
-# IPv6
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes \
-    libebtc
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -264,8 +215,8 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(COMMON_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+    $(COMMON_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(COMMON_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
 # Media Google
 PRODUCT_COPY_FILES += \
@@ -277,24 +228,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libavmediaserviceextensions \
     libmediametrics \
-    libregistermsext \
-    mediametrics
+    libregistermsext
 
 # Netutils
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
-    libandroid_net \
-    netutils-wrapper-1.0
+    libandroid_net
 
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libextmedia_jni \
     libhypv_intercept \
     libmm-omxcore \
-    libOmxCore \
     libOmxAacEnc \
     libOmxAmrEnc \
+    libOmxCore \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
@@ -314,6 +262,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml \
+    frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
@@ -331,38 +280,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_0_3.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
-    frameworks/native/data/etc/android.software.webview.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.webview.xml \
-    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_0_3.xml \
-    frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
-
-# Preopt SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-
-# Privapp-Permissions
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/privapp-permission/privapp-permissions-qti-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml \
-    $(COMMON_PATH)/configs/privapp-permission/privapp-permissions-qti-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    $(COMMON_PATH)/configs/privapp-permission/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-hotword.xml
+    frameworks/native/data/etc/android.software.webview.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.webview.xml
 
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
-
-# Low power Whitelist
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -379,37 +310,19 @@ TARGET_COMMON_QTI_COMPONENTS := \
     perf \
     wfd-legacy
 
-# RCS
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_api \
-    rcs_service_api.xml
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.4 \
-    android.hardware.radio@1.2 \
     android.hardware.radio.config@1.1 \
+    android.hardware.radio@1.2 \
+    android.hardware.radio@1.4 \
     android.hardware.secure_element@1.0 \
-    librmnetctl \
-    libxml2 \
     libprotobuf-cpp-full \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    rild \
-    telephony-ext
-
-# Seccomp policy
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    $(COMMON_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    librmnetctl \
+    libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -435,24 +348,15 @@ PRODUCT_SOONG_NAMESPACES += \
 # Tetheroffload
 PRODUCT_PACKAGES += \
     ipacm \
-    ipacm.rc \
     IPACM_cfg.xml \
     libipanat \
     liboffloadhal
-
-# TextClassifier smart selection model files
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
 
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service \
     thermal.sdm660
-
-# Thermal Controller
-PRODUCT_PACKAGES += \
-   ThermalController
 
 # USB
 PRODUCT_PACKAGES += \
@@ -462,8 +366,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libdng_sdk.vendor_32 \
     libstdc++.vendor_32  \
-    vndk-ext \
-    vndk_package
+    vndk_package \
+    vndk-ext
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -472,7 +376,9 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libwifi-hal-qcom \
     wpa_supplicant \
-    wpa_supplicant.conf \
+    wpa_supplicant.conf
+
+PRODUCT_PACKAGES_DEBUG += \
     wpa_cli
 
 # WiFi Configs
