@@ -25,15 +25,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.hw.binder.size_kbyte=1024 \
     persist.vendor.audio.ras.enabled=false \
     ro.af.client_heap_size_kbyte=7168 \
-    ro.config.vc_call_vol_steps=7 \
     ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7 \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
+    vendor.audio_hal.period_size=240 \
     vendor.audio.adm.buffering.ms=12 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.flac.sw.decoder.24bit=true \
-    vendor.audio_hal.period_size=240 \
     vendor.audio.hw.aac.encoder=true \
     vendor.audio.offload.buffer.size.kb=64 \
     vendor.audio.offload.gapless.enabled=true \
@@ -44,10 +44,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.parser.ip.buffer.size=262144 \
     vendor.audio.safx.pbe.enabled=true \
     vendor.audio.snd_card.open.retries=50 \
+    vendor.audio.spkr_prot.tx.sampling_rate=48000 \
     vendor.audio.tunnel.encode=false \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
-    vendor.audio.spkr_prot.tx.sampling_rate=48000 \
     vendor.audio.volume.headset.gain.depcal=true \
     vendor.fm.a2dp.conc.disabled=true \
     vendor.voice.path.for.pcm.voip=true
@@ -60,9 +60,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.audiozoom.enable=false \
     vendor.audio.feature.battery_listener.enable=false \
     vendor.audio.feature.compr_cap.enable=false \
+    vendor.audio.feature.compr_voip.enable=true \
     vendor.audio.feature.compress_in.enable=false \
     vendor.audio.feature.compress_meta_data.enable=true \
-    vendor.audio.feature.compr_voip.enable=true \
     vendor.audio.feature.concurrent_capture.enable=false \
     vendor.audio.feature.custom_stereo.enable=true \
     vendor.audio.feature.deepbuffer_as_primary.enable=false \
@@ -71,8 +71,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.dynamic_ecns.enable=false \
     vendor.audio.feature.ext_hw_plugin.enable=false \
     vendor.audio.feature.external_dsp.enable=false \
-    vendor.audio.feature.external_speaker.enable=false \
     vendor.audio.feature.external_speaker_tfa.enable=false \
+    vendor.audio.feature.external_speaker.enable=false \
     vendor.audio.feature.fluence.enable=true \
     vendor.audio.feature.fm.enable=true \
     vendor.audio.feature.hdmi_edid.enable=false \
@@ -81,18 +81,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.hifi_audio.enable=true \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=false \
-    vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.keep_alive.enable=false \
     vendor.audio.feature.kpi_optimize.enable=false \
     vendor.audio.feature.maxx_audio.enable=false \
+    vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.ras.enable=true \
     vendor.audio.feature.record_play_concurency.enable=false \
     vendor.audio.feature.snd_mon.enable=false \
     vendor.audio.feature.src_trkn.enable=true \
     vendor.audio.feature.ssrec.enable=false \
-    vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.usb_offload_burst_mode.enable=false \
     vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
+    vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.vbat.enable=true \
     vendor.audio.feature.wsa.enable=false
 
@@ -118,9 +118,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.privapp.list=org.codeaurora.snapcam \
     persist.vendor.camera.dual.isp.sync=0 \
-    persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.eis.enable=1 \
     persist.vendor.camera.exif.make=Xiaomi \
+    persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.privapp.list=org.codeaurora.snapcam \
     vendor.camera.aux.packageblacklist=com.google.android.GoogleCamera,com.discord
 
@@ -130,43 +130,38 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.latch_unsignaled=1 \
-    debug.sf.enable_hwc_vds=1 \
-    debug.sf.hw=1 \
-    debug.sf.disable_backpressure= 1 \
-    debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000 \
-    debug.sf.early_phase_offset_ns=1500000 \
-    debug.sf.enable_gl_backpressure=1 \
     debug.cpurend.vsync=false \
     debug.hwui.use_buffer_age=false \
+    debug.sf.disable_backpressure= 1 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.hw=1 \
+    debug.sf.latch_unsignaled=1 \
     persist.hwc.enable_vds=1 \
     ro.opengles.version=196610 \
     ro.qualcomm.cabl=0 \
     vendor.display.disable_skip_validate=1 \
+    vendor.display.enable_default_color_mode=0 \
     vendor.gralloc.enable_fb_ubwc=1 \
     vendor.video.disable.ubwc=1 \
-    vendor.display.enable_default_color_mode=0 \
     video.disable.ubwc=1
 
 # The default sf phase offset is set to 6ms, to avoid it be included into next
 # vsync threshold, set high fps early sf and next vsync threshold phase offset
 # to 6.1ms, which is bigger than all sf phase offsets in normal frame rate.
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.high_fps_early_phase_offset_ns=6100000 \
     debug.sf.high_fps_early_gl_phase_offset_ns=9000000 \
+    debug.sf.high_fps_early_phase_offset_ns=6100000 \
     debug.sf.phase_offset_threshold_for_next_vsync_ns=6100000
 
 # Doze
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sensor.proximity=true \
     ro.sensor.pickup=android.sensor.tilt_detector
-
-# Fling
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min.fling_velocity=160 \
-    ro.max.fling_velocity=20000
 
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -192,8 +187,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=false \
     ro.lmk.kill_heaviest_task=true \
     ro.lmk.kill_timeout_ms=100 \
-    ro.lmk.use_minfree_levels=true \
-    ro.lmk.log_stats=true
+    ro.lmk.log_stats=true \
+    ro.lmk.use_minfree_levels=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -211,8 +206,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     persist.mm.enable.prefetch=true \
     vendor.vidc.dec.enable.downscalar=1 \
-    vendor.vidc.enc.disable.pq=true \
     vendor.vidc.enc.disable_bframes=1 \
+    vendor.vidc.enc.disable.pq=true \
     vidc.enc.dcvs.extra-buff-count=2 \
     vidc.enc.target_support_bframe=1
 
@@ -254,23 +249,22 @@ PRODUCT_ODM_PROPERTIES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.backup.ntpServer=0.pool.ntp.org \
-    persist.radio.aosp_usr_pref_sel=true \
     persist.radio.add_power_save=1 \
-    persist.radio.VT_CAM_INTERFACE=2 \
     persist.radio.data_con_rprt=1 \
+    persist.radio.VT_CAM_INTERFACE=2 \
     persist.vendor.data.mode=concurrent \
     persist.vendor.qti.telephony.vt_cam_interface=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.atfwd.start=true \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.procedure_bytes=SKIP \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
-    persist.vendor.radio.procedure_bytes=SKIP \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.telephony.default_network=9,9 \
     ro.telephony.iwlan_operation_mode=legacy \
-    ro.vendor.use_data_netmgrd=true
+    ro.vendor.use_data_netmgrd=true \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     DEVICE_PROVISIONED=1 \
