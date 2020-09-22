@@ -1,10 +1,4 @@
 # ADSP - from LA.UM.8.2.r1-06700-sdm660.0
-lib/libadsprpc_system.so|64294323038962ca2d6bd93d61451e605c054563
-lib/libmdsprpc_system.so|5e8d71b29afefa66d751a2a07b8f2c3d5405df63
-lib/libsdsprpc_system.so|fa1cfa1317b6c37af70fc1c2c76e895409f1ead1
-lib64/libadsprpc_system.so|6b03ee0921475c4e224a3ce577e1afb2032cd285
-lib64/libmdsprpc_system.so|d9f9baba5fbaaf8393a507a8b12e228577499026
-lib64/libsdsprpc_system.so|55a60eb52226a77ec00ad5c049533ef6dacd72bf
 vendor/bin/adsprpcd|5b803e679ddbce4e59c2a67433ffefa6396d61f3
 vendor/lib/libadsp_default_listener.so|3b33fc04b04a2229e60634623d350dac4a936797
 vendor/lib/libadsp_hvx_callback_skel.so|67cb46e6da3fa84d0cf086172591ba13493e663f
@@ -46,8 +40,6 @@ vendor/lib/rfsa/adsp/dirac_resource.dar|7728d5b2ee2927a01df5bd6d7edae3736186c844
 vendor/lib/rfsa/adsp/libdirac-capiv2.so|e56031dfaee094d5267e3cc16625cfceaa07cc27
 
 # CDSP - from LA.UM.8.2.r1-06700-sdm660.0
-lib/libcdsprpc_system.so|111797b70a5274be1af0b343ef54966478bfcd39
-lib64/libcdsprpc_system.so|81db24d014a39b109a8b65b770b24344d0dfe9d2
 vendor/bin/cdsprpcd|6fb2700151a6e6dd57a5d9a388cf3a95d3e8262b
 vendor/lib/libcdsprpc.so|5923636bf782c56de6778f77cf570fb0ccafdc5d
 vendor/lib/libcdsp_default_listener.so|a65a21fb52a98fc769957294fbdc2e22dcd3046f
@@ -57,26 +49,19 @@ vendor/lib64/libcdsp_default_listener.so|33260b098ddde2d0e6cf44b11f12e4c16264fda
 vendor/lib64/libsysmon_cdsp_skel.so|40d3511922c744016c419983b18f97952c23fee5
 
 # Audio - from LA.UM.8.2.r1-06700-sdm660.0
-etc/permissions/audiosphere.xml|3c6d8f14bd99e52a424282fd5d0a5b9b06485dea
-framework/audiosphere.jar|c1679f5aca56f0cb24745b3f7d219acd04833bed
 vendor/lib/libacdb-fts.so|a2f09f2a01c326d6b57b1c0e406c92850ceef439
 vendor/lib/libacdbloader.so|3c294e9ed4ab4640830197f33028b342f9351a0f
 vendor/lib/libacdbrtac.so|98a8a9cf331cc10c755c808da3bf4da5d4de0c2a
 vendor/lib/libadiertac.so|9d6c62200d81e28ccd78aef6ce8e223655f102b6
 vendor/lib/libadm.so|2a275948330d0b50cbbaee644d81ffa6cfb54590
 vendor/lib/libaudcal.so|2c7b95a1c0e43f1c7d8d679f472343776f7bf718
-vendor/lib/libaudioalsa.so|1d8eb7dae06b1cca0cd360a5996bb59a9bd8ba25
-vendor/lib/libaudioparsers.so|d898e3d2cc8177e916052527135258c8d9fc7e89
-vendor/lib/libdrc.so|aa8e8dd2a27803bf8ac36619036e1dc736be540b
 vendor/lib/libqtigef.so|10b64bf536b4edb6c09d047c218cfe4c9a9255f1
-vendor/lib64/libacdb-fts.so|fe3610a7cce613592e90245ce98a23be1763545c
-vendor/lib64/libacdbloader.so|1ca9195a3f00064f3addaf2e9443609d07fd8940
-vendor/lib64/libacdbrtac.so|51d6d796b8d0815b8a7670dfbcd449dd3bb51506
-vendor/lib64/libadiertac.so|8f77a71f76ef3a88d06955c4d6d4d915d62c4c94
-vendor/lib64/libaudcal.so|80ee15046e7a7249a0c9def9bf3f3d94efd3ce6a
-vendor/lib64/libaudioalsa.so|bdf49c709df8a1a7a7e232a6cb1ba6d15af594c7
-vendor/lib64/libaudioparsers.so|ad9394501d467fd264675ead74a4e6bab34eadd5
-vendor/lib64/libqtigef.so|1b7fa4dacefd97f019c342477ff57dc861e70277
+
+# Audio FX modules - from LA.UM.8.2.r1-06700-sdm660.0
+vendor/lib/soundfx/libasphere.so|eaa35262337a8401aaecf02997e98e24083f064c
+vendor/lib/soundfx/libqcbassboost.so|21670836de855a24f1b2424a9c4ad7c6cac3afa0
+vendor/lib/soundfx/libqcreverb.so|3a93eecfdec56b2754a6256a75578ed26f5c61ba
+vendor/lib/soundfx/libqcvirt.so|fd081ae5705152d75d577034f8ac1920b0bb9ca7
 
 # Alarm - from LA.UM.8.2.r1-06700-sdm660.0
 -product/app/PowerOffAlarm/PowerOffAlarm.apk|c214e1f7de878aeebe642857d6283bbeca0c7a3e
@@ -92,17 +77,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|f48d221f6678ff39bdb3e667c6e1a0f399
 product/lib64/com.qualcomm.qti.ant@1.0.so|1a7bee1627309c8eee55dab22b9f25c2302219ae
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|5ef111c6ecb35b94233ae694d80161e9f61b7cd6
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|203528c568c1c5ce33b35dcb9ee9eb7ecb1de206
-
-# Audio FX modules - from LA.UM.8.2.r1-06700-sdm660.0
-vendor/lib/soundfx/libmisoundfx.so|569ee2df586e95116b79cfb3d89429f2032a7a76
-vendor/lib/soundfx/libasphere.so|eaa35262337a8401aaecf02997e98e24083f064c
-vendor/lib/soundfx/libqcbassboost.so|21670836de855a24f1b2424a9c4ad7c6cac3afa0
-vendor/lib/soundfx/libqcreverb.so|3a93eecfdec56b2754a6256a75578ed26f5c61ba
-vendor/lib/soundfx/libqcvirt.so|fd081ae5705152d75d577034f8ac1920b0bb9ca7
-vendor/lib64/soundfx/libasphere.so|27154ce2eed6902f36ed8c85324cf61c96c8af02
-vendor/lib64/soundfx/libqcbassboost.so|d729c008d1b8925d60078b2733010708bdfed2c4
-vendor/lib64/soundfx/libqcreverb.so|1dba604109a6f1c41285aa70b88274d5fddbb656
-vendor/lib64/soundfx/libqcvirt.so|7b11552f1100a6b6146865ceba853d331946b913
 
 # Bluetooth qti - from LA.UM.8.2.r1-06700-sdm660.0
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|5acf94f38e47c2ec43c95e132dfe7b5d71ec41c4
@@ -731,18 +705,14 @@ vendor/lib64/lib-rtpcore.so|0613854e2edf2789b2d7411da2ab545436bf67a9
 vendor/lib64/lib-imsdpl.so|6f2f6ad20792561595c29ae7469d938b82608523
 
 # Sensors - from LA.UM.8.2.r1-06700-sdm660.0
-product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so|bda110fc8102be6f88bd0e364819d15d9c0c3744
-product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|67620ca191213b83e898ee401807eb8385b0020d
 vendor/bin/sensors.qti|c11eb7939bdcf47b51199f4a2c247486d5bbcd89
 vendor/lib/hw/activity_recognition.sdm660.so|47c588e1bdb357f31721171dc1d6a781c743bd64
 vendor/lib/libsensor1.so|b1b0dcb45432e51fabffe595010f35a017c7a3fd
 vendor/lib/libsensor_reg.so|170c40b9b7d48c922cd3ca1a552a34311ee79799
-vendor/lib/sensor_calibrate.so|9f81f1bf43b7871555915c9d57bba16d0419af40
 vendor/lib/sensors.ssc.so|2127a224529656d54b15177129ca6783784ccb24
 vendor/lib64/hw/activity_recognition.sdm660.so|d7dac1daafb812625094f5e85097c00fdc385da1
 vendor/lib64/libsensor1.so|dac9d5fb1b5aacfa5bedf812ebdd04eadd0af2dc
 vendor/lib64/libsensor_reg.so|be00c924983a2a279f799332cf2b262da9af78d1
-vendor/lib64/sensor_calibrate.so|dacb7a77e1713a756a43c082329e9f42e2c0d40e
 vendor/lib64/sensors.ssc.so|b53f9d8a5580feb9ca8f9e4efd080f76dc1d1588
 
 # Soter - from LA.UM.8.2.r1-06200-sdm660.0
@@ -765,11 +735,9 @@ vendor/lib64/libSubSystemShutdown.so|c934b2df57be86fdfb9bdf2046f9289af5e7a62c
 
 # Thermal - from wayne Miui 9.7.4
 vendor/bin/thermal-engine|ca43d430181339bd02cddc771584b0e4e1846c0b
-vendor/lib/libthermalfeature.so|1f1eb616ba26b309a2fda7de40c2163a4acaaa35
-vendor/lib64/libthermalfeature.so|829b2fc0aa8c863d4b4b331e0a2c00663e01efe6
-vendor/lib64/libthermalioctl.so|e1844c66a556946b45bcb6c2e747460aa5201770
 -vendor/lib/libthermalclient.so|34b6ee056ae8a6df578fc243f8acd3567a49d97b
 -vendor/lib64/libthermalclient.so|20f1fd238fc81bf1c6828ec416121c0ef66e0df1
+vendor/lib64/libthermalioctl.so|e1844c66a556946b45bcb6c2e747460aa5201770
 
 # Time services - from LA.UM.8.2.r1-06700-sdm660.0
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um|c935b678fdaed033513f044f6492361c3370f9f0
@@ -797,17 +765,3 @@ vendor/lib/vendor.qti.hardware.sigma_miracast@1.0.so|b0239e01e7d91f2a595930651a8
 vendor/lib64/libmiracast.so|beae10ca8d5eb23e9150c2d891c40d1b023a7fab
 vendor/lib64/libmmosal_proprietary.so|6dd922491df6c8d9f0c54f30d663ef7a574b9c9f
 vendor/lib64/vendor.qti.hardware.sigma_miracast@1.0.so|7ca31bd88bffc97e5d8a2b8a1b3706231b73befe
-
-# Common Camera - from Pie
-vendor/lib/libchromaflash.so|cf85560822e04014b8950a1abae9c2843069101d
-vendor/lib/libllvd_smore.so|740de4c339772df80858ddd9390f91ead71eadeb
-vendor/lib/libmmcamera_chromaflash_lib.so|2ac15c08e7916b039b9d053a2d5c6846ed28ae41
-vendor/lib/libmmcamera_llvd.so|6fca05767e27b9a5f0050fc9296069c09e9f5dba
-vendor/lib/libmmcamera_optizoom_lib.so|0d54dcba2f86236b66384aa83861693451ee0451
-vendor/lib/libmmcamera_stillmore_lib.so|d313da5abb76da8a4328d18e13aaa3f042f63e47
-vendor/lib/libmmcamera_trueportrait_lib.so|41f491298caf7ddd2fd19b9f71906fd9f2a826ff
-vendor/lib/libmmcamera_ubifocus_lib.so|204680decba87b04a2eb5ad4746e69f8e0c413bc
-vendor/lib/liboptizoom.so|1e92993743636c045438f1f15c07c1e835d9ca46
-vendor/lib/libseemore.so|cd207541c3cdd97eb25ef2a9c63662054393e81f
-vendor/lib/libtrueportrait.so|b8e11c098bd859aae6c535cdb87e3e36f6b1c6ef
-vendor/lib/libubifocus.so|833a305c780b2e7e338323c5ba27cb042f5cc3ed
