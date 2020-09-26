@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fd70cbf_733b522f",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000518
+      },
+      "writtenOn": "2020-09-26T14:22:12Z",
+      "side": 1,
+      "message": "We don\u0027t use that",
+      "revId": "3f31ba2a705d1367a8468a3ac792b55d5f212eae",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": true
+    }
+  ]
+}
