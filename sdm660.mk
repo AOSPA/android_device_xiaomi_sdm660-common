@@ -52,12 +52,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-service \
     bootctrl.sdm660
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm660 \
-    libcutils \
-    librecovery_updater_msm \
-    libz
-
 # Boot control debug
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
@@ -367,9 +361,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_0_3.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
-# Preopt SystemUI
-PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
-
 # Privapp-Permissions
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/privapp-permission/privapp-permissions-qti-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml \
@@ -400,13 +391,6 @@ TARGET_COMMON_QTI_COMPONENTS := \
     bt \
     wfd-legacy
 
-# RCS
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_api \
-    rcs_service_api.xml
-
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
@@ -420,12 +404,7 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
     libprotobuf-cpp-full \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    rild \
-    telephony-ext
+    rild
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
